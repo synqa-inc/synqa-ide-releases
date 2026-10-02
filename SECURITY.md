@@ -17,9 +17,9 @@ Include as much of the following as you can:
 - steps or a proof of concept that reproduce it
 - any logs or screenshots
 
-You will get an acknowledgement within 3 business days. We will keep you
-updated while we investigate, agree a disclosure date with you, and credit you
-in the release notes if you would like.
+Synqa is a small team, so we can't promise a fixed response time, but we read
+every report and will reply as soon as we can. We will keep you updated while
+we investigate, and credit you in the release notes if you would like.
 
 ## Supported versions
 
