@@ -136,6 +136,6 @@ Synqa IDE is an independent project. It isn't made or endorsed by the BB project
 
 ## Licence
 
-Synqa IDE is released under the [MIT Licence](LICENSE), the same licence as BB. The LICENSE file keeps the original BB and BB Office copyright notices and the notices for the office art.
+Synqa IDE is released under the [MIT Licence](LICENSE), the same licence as BB. The LICENSE file keeps the original BB copyright notice, and [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES) lists BB, BB Office and the office art.
 
 This repository holds the app downloads and update files.
