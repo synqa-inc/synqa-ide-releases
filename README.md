@@ -53,6 +53,34 @@ Keep the office wherever suits you: as a **floating** window you can drag and sh
 
 **Tasks** is a simple project board built in. Write tasks, sort them into columns, and hand one to an agent. The agent is asked to move the task to **In Review** when it finishes, so you can check its work.
 
+### Works with the AI plans you already pay for
+
+Synqa IDE doesn't sell AI or add a markup. It runs the coding agents you already use, through your own accounts, and each provider bills you directly as usual.
+
+| Agent | Sign in with | Works with |
+| --- | --- | --- |
+| **Claude Code** | `claude` | Your Claude subscription |
+| **Codex** | `codex login` | Your ChatGPT plan or an OpenAI API key |
+| **Pi** | `pi` | The AI account or API key you set up in Pi |
+| **Cursor, opencode, Grok Build, Hermes Agent, omp** | Each agent's own command, for example `cursor-agent login` or `opencode auth login` | Your existing account with that agent |
+
+You can add any other agent that supports the Agent Client Protocol (ACP) as a short JSON entry under **Custom agents** in the **ACP providers** plugin's settings.
+
+Sign in once in Terminal with each agent's own command. Synqa IDE picks up that sign-in, so you never give it your password. For Claude Code, Codex and Pi, Synqa offers to install the command-line tool if it's missing, and to update it in **Settings → Updates** when it's out of date. It can install Cursor's too. Install the other agents yourself, and they appear once Synqa finds them.
+
+**See how much of your plan you've used.** For agents that report it (Claude Code, Codex with a ChatGPT plan, Cursor and opencode Go), posters on the Synqa HQ office wall and the **Provider usage** button in the sidebar footer (also under **Settings → Installed plugins → Provider usage**) show how much of each limit you've used and when it resets. When you hit a usage limit, Synqa can retry automatically once it resets. By default it waits up to 6 hours (you can change this to 24 hours or no limit), so a limit that resets later than that, such as a weekly one, isn't retried. Spending and credit limits are never retried.
+
+### Build what's missing, just by asking
+
+BB calls itself "the IDE that builds itself", and Synqa IDE keeps that. Much of the app is made of plugins, including the Synqa HQ office, the Tasks board, scheduled jobs, the GitHub integration and remote access. Your agents can build new plugins with the same tools.
+
+- **New plugin.** Open **Plugins** in the sidebar and click **New plugin**. Describe what you want, or start from an example such as a Kanban board, a live dashboard or a support inbox. An agent writes the plugin, builds it and installs it. Synqa gives agents a built-in plugin-writing skill, so you don't need to know how plugins work.
+- **New skill.** Open **Skills** and click **New Synqa skill** to teach your agents a routine, such as how you review pull requests or write release notes. You can also browse and install ready-made skills from [skills.sh](https://skills.sh).
+- **Automations.** Ask an agent to "check for failing builds every morning" or "summarise new issues every Friday", and Synqa runs the job on a schedule.
+- **Share it.** If you build something useful, an agent can help you prepare it for the BB Community marketplace. The agent is told to ask for your approval before it pushes, tags or publishes a release.
+
+Plugins run on your Mac with full access, like any app you install. Read what an agent built before you rely on it.
+
 ### Lives in your menu bar
 
 The menu-bar icon lists your running agents and any that need you. From there you can open the app, show the office, or stop every running agent at once with **Pause all agents**. You can also close the window and leave your agents running in the background.
@@ -83,6 +111,44 @@ You can run Synqa IDE and BB side by side. They don't share data.
 
 ---
 
+## Add more from the BB marketplace
+
+Synqa IDE uses BB's plugin marketplace, so you can browse the same 300+ plugins as BB users. BB updates the marketplace, so new plugins appear without a Synqa update. A few may need a newer version of Synqa IDE, and the app tells you if so.
+
+**To browse:** open **Plugins** in the sidebar. Browse by category, search, and click **Install**. BB says plugins in its BB Community marketplace are reviewed by the BB team. You can also see the whole catalogue at [getbb.app/marketplace](https://getbb.app/marketplace).
+
+**Prefer typing?** Ask any agent to "install the ntfy plugin". It runs `bb plugin search` and `bb plugin install` for you. To install from npm, a Git repository or a folder on your Mac instead, use **New plugin → Install from source**.
+
+**Already installed and on:** Claude Code, Codex, Pi and ACP providers, BB Office (Synqa HQ), Tasks, Automations, Provider usage, Provider retry, Secrets, Drafts, Send later, Side chat, Custom instructions, Push notifications, Keep awake, Inline visualizations, PDF preview and bb connect (remote access), plus behind-the-scenes helpers such as the BB guide, bb cloud AI and the Worktree environment.
+
+**Included, one click to install:** GitHub, Memory, Docs, Theme Preview, Modal Sandbox (experimental) and Browser Automation. Each one is on once installed.
+
+**Installed but off until you turn them on:** Workflows, File Editor, Ask User Question, Plugin Guide, Agent Annotations, Plugin API Tester and Account Pooler (experimental).
+
+> Synqa HQ is Synqa's own version of BB Office. It's already installed and appears as **BB Office** in your plugin list and as **Office** in the sidebar.
+
+**A few community plugins to try:**
+
+| Plugin | What it does |
+| --- | --- |
+| **Recap** | Writes a short summary of a thread when it finishes or when you ask. |
+| **Rewind** | Undoes an agent's file changes turn by turn, with a preview first. |
+| **ntfy notifications** | Pings your phone when an agent needs you or finishes. |
+| **Notify** | Shows a native macOS notification when a thread finishes or fails. |
+| **Code Review** | Lists pull requests waiting for your review and drafts comments you edit and post yourself. |
+| **Advisor** | Adds a second AI model that reviews the coding agent's work. |
+| **GitLab** | Shows GitLab issues and merge requests, and hands any of them to an agent. |
+| **Sentry Issues** | Shows a read-only view of your Sentry issues across projects. |
+| **Floating Terminal** | Adds a draggable terminal window that remembers its tabs. |
+| **Usage** (`usage`) | Tracks token use and estimated API cost across your machines. |
+| **Preset Sync** | Keeps your plugins and settings the same on several computers through a Git repo. |
+| **Discord** | Lets you run agent threads and answer approvals from Discord. |
+| **Tokyo Night** | Adds Tokyo Night colour themes. Many more themes are available. |
+
+Community plugins are made by their own authors, not by Synqa. Each one runs with access to your projects, so install only the ones you trust.
+
+---
+
 ## Install
 
 1. [Download Synqa IDE](https://github.com/synqa-inc/synqa-ide-releases/releases/latest/download/Synqa-IDE-arm64.dmg).
@@ -100,7 +166,7 @@ Synqa IDE checks this page for new versions, downloads them in the background, a
 ## What you need
 
 - **A Mac with Apple silicon** (M1 or newer) running **macOS 13 Ventura or later**. Intel Macs, Windows and Linux are not supported.
-- **At least one AI coding agent you're already signed in to**, such as Claude Code, Codex, Pi, or another agent that supports ACP (for example Cursor or opencode). Synqa IDE doesn't come with its own AI. It uses the agents and subscriptions you already have.
+- **At least one AI coding agent you're signed in to**, such as Claude Code, Codex or Pi. Synqa IDE doesn't come with its own AI. See [Works with the AI plans you already pay for](#works-with-the-ai-plans-you-already-pay-for) for the full list and how to sign in.
 - **The GitHub CLI** (`gh`), signed in, if you want to work with pull requests.
 
 ## Where your data lives
